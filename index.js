@@ -45,18 +45,27 @@ inquirer
     var READMEContent = `
   # ${data.name}
   ## Description:
-  ${data.Description}
+  ${data.description}
 
   Table of Contents
   ------------------
   * [Usage](#usage)
   * [Installation](#installation)
-    
-    # Installation
+  * [License](#license)
+  * [Github](#github)  
+
+    ### Installation
     ${data.installation}
 
-    # Usage
+    ### Usage
     ${data.usage}
+
+    ### License
+    ![GitHub license](https://img.shields.io/badge/license-${data.license}-blue.svg)
+
+    ### Github
+    [Developer Profile](https://github.com/${data.github})
+
     `
     console.log(READMEContent)
     // const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;

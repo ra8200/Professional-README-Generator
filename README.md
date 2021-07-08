@@ -1,5 +1,5 @@
 
-  # rara
+  # Readme
   ## Description:
   undefined
 
@@ -7,10 +7,15 @@
   ------------------
   * [Usage](#usage)
   * [Installation](#installation)
+  * [License](#license)
     
-    # Installation
-    adfadjsfajkasdjkasdfljk;asfd
+    ### Installation
+    npm i
 
-    # Usage
+    ### Usage
     free
+
+    ### License
+    ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+
     
