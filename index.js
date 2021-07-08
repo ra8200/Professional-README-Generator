@@ -39,6 +39,16 @@ inquirer
       type: 'input',
       name: 'usage',
       message: 'Terms of Usage: ',
+    },
+    {
+      type: 'input',
+      name: 'contributors',
+      message: 'Who contributed to this project?',
+    },
+    {
+      type: 'input',
+      name: 'testing',
+      message: 'What type of testing is need?',
     }
   ])
   .then((data) => {
@@ -53,6 +63,8 @@ inquirer
   * [Installation](#installation)
   * [License](#license)
   * [Github](#github)  
+  * [Contributors](#contributors)
+  * [Testing](#testing)
 
     ### Installation
     ${data.installation}
@@ -66,7 +78,13 @@ inquirer
     ### Github
     [Developer Profile](https://github.com/${data.github})
 
+    ### Contributors
+    ${data.contributors}
+
+    ### Testing 
+    ${data.testing}
     `
+
     console.log(READMEContent)
     // const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
 
