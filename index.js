@@ -1,8 +1,6 @@
-// TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-// TODO: Create an array of questions for user input
 const questions = [];
 init();
 
@@ -11,46 +9,52 @@ inquirer
   .prompt([
     {
       type: 'input',
+      name: 'github',
+      message: 'What is your GitHub username?',
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'What is your email address?',
+    },
+    {
+      type: 'input',
       name: 'name',
-      message: 'What is  project name?',
+      message: 'What is the name of the application?',
     },
     {
       type: 'input',
       name: 'description',
-      message: 'What is the description of the application?',
-    },
-    {
-      type: 'list',
-      message: 'What License would you preer?',
-      name: 'license',
-      choices: ['MIT', 'ISC', 'APACHE',"GPL","None"],
-    },
-    {
-      type: 'input',
-      name: 'github',
-      message: 'Enter your GitHub Username',
+      message: 'What does your application do?',
     },
     {
       type: 'input',
       name: 'installation',
-      message: 'Enter installation instructions: ',
-    },
-    {
-      type: 'input',
-      name: 'usage',
-      message: 'Terms of Usage: ',
-    },
-    {
-      type: 'input',
-      name: 'contributors',
-      message: 'Who contributed to this project?',
+      message: 'What command should be run to install dependencies?',
     },
     {
       type: 'input',
       name: 'testing',
       message: 'What type of testing is need?',
+    },
+    {
+      type: 'input',
+      name: 'usage',
+      message: 'Terms of Usage:',
+    },
+    {
+      type: 'input',
+      name: 'contributors',
+      message: 'What does the contributor need to know to contribute to this repo?',
+    },
+    {
+      type: 'list',
+      message: 'What License do you need?',
+      name: 'license',
+      choices: ['MIT', 'ISC', 'APACHE',"GPL","None"],
     }
   ])
+
   .then((data) => {
     var READMEContent = `
   # ${data.name}
@@ -59,30 +63,35 @@ inquirer
 
   Table of Contents
   ------------------
+  * [Github](#github)
+  * [Email](#email)  
   * [Usage](#usage)
   * [Installation](#installation)
-  * [License](#license)
-  * [Github](#github)  
-  * [Contributors](#contributors)
   * [Testing](#testing)
+  * [Contributors](#contributors)
+  * [License](#license)
+  
+    ### Github
+    [Developer Profile](https://github.com/${data.github})
+  
+    ### Email
+    ${data.email}
 
     ### Installation
     ${data.installation}
 
     ### Usage
     ${data.usage}
-
-    ### License
-    ![GitHub license](https://img.shields.io/badge/license-${data.license}-blue.svg)
-
-    ### Github
-    [Developer Profile](https://github.com/${data.github})
+    
+    ### Testing 
+    ${data.testing}
 
     ### Contributors
     ${data.contributors}
-
-    ### Testing 
-    ${data.testing}
+    
+    ### License
+    ![GitHub license](https://img.shields.io/badge/license-${data.license}-blue.svg)
+    
     `
 
     console.log(READMEContent)
@@ -92,5 +101,4 @@ inquirer
       err ? console.log(err) : console.log('Success!');
     });
   })}
-// TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
